@@ -38,6 +38,7 @@ const Stopwatch = () => {
 
       <div className=' h-56 w-56 flex justify-center items-center border-8 border-gray-800 dark:border-gray-200 bg-tranparent rounded-full'>
         <p className=' h-full w-full bg-gray-700 rounded-full scale-125 -z-10'></p>
+        <img src='./logo.svg' alt='logo' className='h-full opacity-20 scale-125 bg-transparent' />
       </div>
 
       <div className='flex flex-col gap-10'>
