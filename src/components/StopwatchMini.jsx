@@ -13,7 +13,7 @@ const StopwatchMini = () => {
   const [showMini, setShowMini] = useState(isStopwatchStarted);
 
   if (time.sec === 0 && time.min === 0 && time.hour === 0) {
-    return 0;
+    return null;
   }
 
   const handleReset = () => {
