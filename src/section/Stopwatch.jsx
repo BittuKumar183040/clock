@@ -162,7 +162,7 @@ const Clock = ({ time }) => {
   );
 };
 
-const initialTime = { sec: 50, min: 10, hour: 10 };
+const initialTime = { sec: 0, min: 0, hour: 0 };
 const Stopwatch = () => {
   useDocumentTitle('Stopwatch');
   const [isStarted, setIsStarted] = useState(false);
