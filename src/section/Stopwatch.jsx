@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, useContext } from 'react';
 import { PiPauseBold, PiPlayBold } from 'react-icons/pi';
 import { BiReset } from 'react-icons/bi';
 import useDocumentTitle from '../components/useDocumentTitle';
 import { motion } from 'motion/react';
+import { TimerContext } from '../App';
+import { formatTime } from '../components/function';
 
 const GradientCircle = ({
   radius = 40,
@@ -162,40 +164,11 @@ const Clock = ({ time }) => {
   );
 };
 
-const initialTime = { sec: 0, min: 0, hour: 0 };
 const Stopwatch = () => {
   useDocumentTitle('Stopwatch');
-  const [isStarted, setIsStarted] = useState(false);
-  const [time, setTime] = useState(initialTime);
-  const [isReset, setIsReset] = useState(false);
+  const { time, isStopwatchStarted, startStopwatch, resetStopwatch } =
+    useContext(TimerContext);
 
-  const handleClick = () => {
-    setIsStarted(!isStarted);
-  };
-
-  useEffect(() => {
-    let interval;
-    if (isStarted) {
-      interval = setInterval(() => {
-        setTime(({ sec, min, hour }) => {
-          if (sec === 59) {
-            return { sec: 0, min: min + 1, hour };
-          }
-          if (min === 59) {
-            return { sec: 0, min: 0, hour: hour + 1 };
-          }
-          return { sec: sec + 1, min, hour };
-        });
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [isStarted]);
-
-  const formatTime = (value) => {
-    return value < 10 ? `0${value}` : value;
-  };
   return (
     <section>
       <div className="flex flex-col justify-center items-center h-dvh w-full dark:bg-gray-700 flex-wrap gap-24">
@@ -216,17 +189,14 @@ const Stopwatch = () => {
             </div>
           </motion.div>
           <div className=" flex justify-center items-center gap-4 relative mb-20">
-            {!isStarted && (
+            {!isStopwatchStarted && (
               <motion.div
                 initial={{ opacity: 0, x: 0 }}
                 whileHover={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)' }}
                 animate={{ opacity: 1, x: -110 }}
                 transition={{ duration: 0.2, ease: 'easeInOut' }}
                 className="bg-red-700 select-none text-white cursor-pointer absolute z-10 flex items-center justify-center gap-4 w-fit p-3 px-7 rounded-full shadow-lg"
-                onClick={() => {
-                  setIsReset(!isReset);
-                  setTime(initialTime);
-                }}
+                onClick={resetStopwatch}
               >
                 <BiReset size={20} />
               </motion.div>
@@ -236,11 +206,11 @@ const Stopwatch = () => {
               initial={{ opacity: 0, y: -50 }}
               whileHover={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)' }}
               animate={{ opacity: 1, y: 0 }}
-              onClick={handleClick}
+              onClick={startStopwatch}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className={` flex items-center select-none justify-center cursor-pointer gap-4 ${isStarted ? 'bg-gray-600 text-green-200' : 'bg-green-600 text-white'} w-fit p-2 px-5 rounded-full shadow-lg`}
+              className={` flex items-center select-none justify-center cursor-pointer gap-4 ${isStopwatchStarted ? 'bg-gray-600 text-green-200' : 'bg-green-600 text-white'} w-fit p-2 px-5 rounded-full shadow-lg`}
             >
-              {isStarted ? (
+              {isStopwatchStarted ? (
                 <>
                   <PiPauseBold size={20} className=" opacity-70" />
                   <span className="text-xl opacity-70 ">Pause</span>
