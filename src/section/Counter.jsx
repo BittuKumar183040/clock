@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { TimerContext } from '../App';
 
 const Counter = () => {
-  const { time, increaseCount, decreaseCount, resetCount } = useContext(TimerContext);
+  const { time, increaseCount, decreaseCount, resetCount } =
+    useContext(TimerContext);
   return (
     <div>
       <p>Counter</p>

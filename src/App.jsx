@@ -24,19 +24,19 @@ function App() {
   const increaseCount = () => {
     setTime(({ sec, min, hour, count }) => {
       return { sec, min, hour, count: count + 1 };
-    })
-  }
+    });
+  };
   const decreaseCount = () => {
     setTime(({ sec, min, hour, count }) => {
       if (count === 0) return { sec, min, hour, count };
       return { sec, min, hour, count: count - 1 };
-    })
-  }
+    });
+  };
   const resetCount = () => {
     setTime(({ sec, min, hour, count }) => {
       return { sec, min, hour, count: count * 0 };
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     let interval;
@@ -62,8 +62,13 @@ function App() {
     <div id="parentDiv">
       <TimerContext.Provider
         value={{
-          time, isStopwatchStarted, startStopwatch, resetStopwatch,
-          increaseCount, decreaseCount, resetCount
+          time,
+          isStopwatchStarted,
+          startStopwatch,
+          resetStopwatch,
+          increaseCount,
+          decreaseCount,
+          resetCount,
         }}
       >
         <BrowserRouter>
