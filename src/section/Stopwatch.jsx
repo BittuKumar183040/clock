@@ -180,9 +180,8 @@ const Stopwatch = () => {
             transition={{ duration: 1, ease: 'easeInOut', delay: 0.2 }}
           >
             {/* <div className="text-right tracking-widest text-gray-500 dark:text-gray-300 text-lg md:text-xl">1000</div> */}
-            <div className=" select-none md:text-9xl dark:text-gray-300 text-7xl font-bold">
-              {formatTime(time.hour)}:{formatTime(time.min)}:
-              {formatTime(time.sec)}
+            <div className=" font-abel select-none md:text-9xl dark:text-gray-300 text-7xl font-bold">
+              {formatTime(time.hour)}:{formatTime(time.min)}:{formatTime(time.sec)}
             </div>
             <div className=" select-none text-lg md:text-2xl text-right dark:text-gray-300 text-gray-500">
               HH:MM:SS

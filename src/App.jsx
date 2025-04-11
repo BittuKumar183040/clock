@@ -7,7 +7,7 @@ import Counter from './section/Counter';
 
 export const TimerContext = createContext();
 
-const initialTime = { sec: 0, min: 0, hour: 0 };
+const initialTime = { sec: 0, min: 0, hour: 0, count: 0 };
 
 function App() {
   const [isStopwatchStarted, setIsStopwatchStarted] = useState(false);
@@ -21,18 +21,35 @@ function App() {
     setIsStopwatchStarted(false);
   };
 
+  const increaseCount = () => {
+    setTime(({ sec, min, hour, count }) => {
+      return { sec, min, hour, count: count + 1 };
+    })
+  }
+  const decreaseCount = () => {
+    setTime(({ sec, min, hour, count }) => {
+      if (count === 0) return { sec, min, hour, count };
+      return { sec, min, hour, count: count - 1 };
+    })
+  }
+  const resetCount = () => {
+    setTime(({ sec, min, hour, count }) => {
+      return { sec, min, hour, count: count * 0 };
+    })
+  }
+
   useEffect(() => {
     let interval;
     if (isStopwatchStarted) {
       interval = setInterval(() => {
-        setTime(({ sec, min, hour }) => {
+        setTime(({ sec, min, hour, count }) => {
           if (sec === 59) {
-            return { sec: 0, min: min + 1, hour };
+            return { sec: 0, min: min + 1, hour, count };
           }
           if (min === 59) {
-            return { sec: 0, min: 0, hour: hour + 1 };
+            return { sec: 0, min: 0, hour: hour + 1, count };
           }
-          return { sec: sec + 1, min, hour };
+          return { sec: sec + 1, min, hour, count };
         });
       }, 1000);
     } else {
@@ -44,7 +61,10 @@ function App() {
   return (
     <div id="parentDiv">
       <TimerContext.Provider
-        value={{ time, isStopwatchStarted, startStopwatch, resetStopwatch }}
+        value={{
+          time, isStopwatchStarted, startStopwatch, resetStopwatch,
+          increaseCount, decreaseCount, resetCount
+        }}
       >
         <BrowserRouter>
           <NavBar />

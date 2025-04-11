@@ -90,7 +90,7 @@ const DateTime = () => {
               : selectedZone}
           </span>
         </div>
-        <div className="flex relative justify-between items-center flex-col">
+        <div className="font-abel flex relative justify-between items-center flex-col">
           <div className="font-mono text-3xl md:text-4xl text-gray-900 dark:text-gray-400 my-4">
             <p>
               {displayTime.date[0]} {displayTime.month[1]} {displayTime.year}
