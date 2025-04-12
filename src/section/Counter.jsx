@@ -1,42 +1,70 @@
 import React, { useContext } from 'react';
 import { TimerContext } from '../App';
 import { motion } from 'motion/react';
+import { BiMinus, BiPlus, BiReset } from 'react-icons/bi';
+import AnimatedNumber from '../components/AnimateNumber';
 
 const Counter = () => {
   const { time, increaseCount, decreaseCount, resetCount } =
     useContext(TimerContext);
   return (
-    <div>
-      <p>Counter</p>
-
+    <div className=" flex px-10 flex-row gap-20 flex-wrap justify-center items-center h-dvh w-full dark:bg-gray-700 select-none">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="flex relative md:w-96 md:h-96 w-64 h-64 rounded-full border-8 border-gray-300 bg-white dark:bg-gray-400 shadow-xl "
+        className="flex items-center relative justify-center w-[244px] h-[244px] overflow-hidden border-2 rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 shadow-xl "
       >
-        <p>{time.count}</p>
+        <AnimatedNumber countNumber={time.count} />
+        <div className="absolute -z-0 top-0 left-0 w-full flex flex-wrap flex-row-reverse items-center">
+          {Array.from({ length: time.count }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="w-6 rounded-md"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 0.4,
+                height: time.count > 299 ? '4px' : '8px',
+              }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              style={{
+                backgroundColor: `hsl(${(i * 360) / time.count}, 100%, 50%)`,
+              }}
+            />
+          ))}
+        </div>
       </motion.div>
-      <div className="flex gap-2">
-        <button
-          onClick={increaseCount}
-          className="bg-green-500 text-white px-4 py-2 rounded"
-        >
-          +
-        </button>
-        <button
-          onClick={decreaseCount}
-          className="bg-red-500 text-white px-4 py-2 rounded"
-        >
-          -
-        </button>
-        <button
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className="flex flex-col gap-2 mb-20 bg-slate-100 shadow-md dark:bg-slate-800 p-2 rounded-lg z-50"
+      >
+        <motion.button
+          whileTap={{ scale: 0.95 }}
           onClick={resetCount}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className={`${time.count === 0 ? 'bg-gray-500' : 'bg-red-500 cursor-not-allowed'} flex items-center justify-around text-white p-2 pl-0 rounded`}
         >
+          <BiReset />
           Reset
-        </button>
-      </div>
+        </motion.button>
+        <div className=" flex gap-2">
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={decreaseCount}
+            className="bg-orange-500 text-white p-4 rounded"
+          >
+            <BiMinus />
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={increaseCount}
+            className="bg-green-500 text-white p-4 px-8 rounded"
+          >
+            <BiPlus />
+          </motion.button>
+        </div>
+      </motion.div>
     </div>
   );
 };
