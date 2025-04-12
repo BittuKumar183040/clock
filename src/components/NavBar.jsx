@@ -41,7 +41,9 @@ const NavBar = () => {
 
   return (
     <>
-      {location.pathname !== '/stopwatch' && <StopwatchMini />}
+      <div className=" absolute top-2 left-2 z-50 flex gap-2 flex-col">
+        {location.pathname !== '/stopwatch' && <StopwatchMini />}
+      </div>
       <div className=" dark:text-white flex w-full bottom-0 items-center">
         <li className="flex justify-center w-96 flex-1 absolute bottom-0 left-1/2 -translate-x-1/2">
           <div className=" grid grid-cols-3 gap-10 bg-slate-200 p-1 px-4 rounded-t-lg dark:bg-slate-800">

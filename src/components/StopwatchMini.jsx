@@ -5,6 +5,7 @@ import { FaPlay } from 'react-icons/fa';
 import { FaPause } from 'react-icons/fa6';
 import { BiReset } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
+import { motion } from 'motion/react';
 
 const StopwatchMini = () => {
   const { time, isStopwatchStarted, startStopwatch, resetStopwatch } =
@@ -25,9 +26,12 @@ const StopwatchMini = () => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: -200 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
       style={{ display: showMini ? 'flex' : ' none' }}
-      className={`absolute left-1/2 top-2 -translate-x-1/2 items-center gap-4 dark:bg-gray-800 dark:text-white bg-gray-200 w-fit p-2 rounded-md`}
+      className={`relative z-50 items-center gap-4 dark:bg-gray-800 dark:text-white bg-gray-200 w-fit p-2 rounded-md`}
     >
       <p className=" tracking-widest">
         {formatTime(time.hour)}:{formatTime(time.min)}:{formatTime(time.sec)}
@@ -59,7 +63,7 @@ const StopwatchMini = () => {
           <IoClose size={15} className=" opacity-70" />
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
