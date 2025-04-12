@@ -34,34 +34,36 @@ const Counter = () => {
           ))}
         </div>
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="flex flex-col gap-2 mb-20 bg-slate-100 shadow-md dark:bg-slate-800 p-2 rounded-lg z-50"
+        className="flex flex-col w-full max-w-96 gap-10 mb-20 bg-slate-100 shadow-md dark:bg-slate-800 p-2 rounded-lg z-50"
       >
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={resetCount}
-          className={`${time.count === 0 ? 'bg-gray-500' : 'bg-red-500 cursor-not-allowed'} flex items-center justify-around text-white p-2 pl-0 rounded`}
+          className={`${time.count === 0 ? 'bg-gray-500' : 'bg-red-500 cursor-not-allowed'} flex items-center justify-center gap-7 text-white p-2 pl-0 rounded`}
         >
           <BiReset />
-          Reset
+          <p>Reset</p>
         </motion.button>
         <div className=" flex gap-2">
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={decreaseCount}
-            className="bg-orange-500 text-white p-4 rounded"
+            className="bg-orange-500 w-1/4 flex items-center justify-center text-white p-4 rounded"
           >
             <BiMinus />
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={increaseCount}
-            className="bg-green-500 text-white p-4 px-8 rounded"
+            className="bg-green-500 flex items-center gap-5 justify-center flex-1 text-white p-4 rounded"
           >
             <BiPlus />
+            <p>Add</p>
           </motion.button>
         </div>
       </motion.div>
