@@ -5,12 +5,12 @@ import { FaPlay } from 'react-icons/fa';
 import { FaPause } from 'react-icons/fa6';
 import { BiReset } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
-import { motion } from 'motion/react';
+import { motion, useDragControls } from 'motion/react';
 
 const StopwatchMini = () => {
   const { time, isStopwatchStarted, startStopwatch, resetStopwatch } =
     useContext(TimerContext);
-
+  const controls = useDragControls();
   const [showMini, setShowMini] = useState(isStopwatchStarted);
 
   if (time.sec === 0 && time.min === 0 && time.hour === 0) {
@@ -27,6 +27,9 @@ const StopwatchMini = () => {
 
   return (
     <motion.div
+      drag
+      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+      dragControls={controls}
       initial={{ opacity: 0, y: -200 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
