@@ -95,11 +95,19 @@ const DateTime = () => {
         <div className="font-abel flex relative justify-between items-center flex-col">
           <div className="font-mono text-3xl md:text-4xl text-gray-900 dark:text-gray-400 my-4">
             <p>
-              {displayTime.date[0]} {displayTime.month[1]} {displayTime.year}
+              {displayTime.date[0]}{' '}
+              <span className="text-red-500">{displayTime.month[1]}</span>{' '}
+              {displayTime.year}
             </p>
           </div>
           <div className=" select-none md:text-9xl dark:text-gray-300 text-7xl font-bold">
-            {displayTime.hour}:{displayTime.min}:{displayTime.sec}
+            {displayTime.hour}:{displayTime.min}:
+            <span
+              className="text-red-500"
+              style={{ textShadow: '2px 2px 3px rgba(0,0,0,0.2)' }}
+            >
+              {displayTime.sec}
+            </span>
             <p className=" select-none text-lg md:text-2xl text-right dark:text-gray-300 text-gray-500">
               HH:MM:SS
             </p>

@@ -6,6 +6,7 @@ import { MdOutlineAccessTime } from 'react-icons/md';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import StopwatchMini from './StopwatchMini';
+import { vibrate } from './function';
 
 const menuItems = [
   {
@@ -34,6 +35,8 @@ const NavBar = () => {
   const handleMenuClick = (path) => {
     navigate(path);
     setMenu(path);
+    if (location.pathname === path) return;
+    vibrate([10, 20, 50]);
   };
 
   return (

@@ -122,7 +122,7 @@ const Clock = ({ time }) => {
       initial={{ scale: 0.5, opacity: 0, rotate: -90, y: -100 }}
       animate={{ scale: 1, opacity: 1, rotate: 0, y: 0 }}
       transition={{ duration: 1, ease: 'easeOut' }}
-      className="relative flex justify-center items-center border-8 border-gray-200 outline outline-2 outline-gray-600 dark:outline-gray-100 bg-transparent rounded-full"
+      className="relative flex justify-center items-center border-8 border-gray-200 outline outline-2 outline-gray-600 dark:outline-gray-900 bg-transparent rounded-full"
       style={{
         width: '200px',
         height: '200px',
@@ -179,7 +179,6 @@ const Stopwatch = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: 'easeInOut', delay: 0.2 }}
           >
-            {/* <div className="text-right tracking-widest text-gray-500 dark:text-gray-300 text-lg md:text-xl">1000</div> */}
             <div className=" font-abel select-none md:text-9xl dark:text-gray-300 text-7xl font-bold">
               {formatTime(time.hour)}:{formatTime(time.min)}:
               {formatTime(time.sec)}
