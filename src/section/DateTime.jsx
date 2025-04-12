@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useDocumentTitle from '../components/useDocumentTitle';
+import AnalogClock from '../components/AnalogClock';
 
 const timeZones = [
   'local',
@@ -80,15 +81,16 @@ const DateTime = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-dvh w-full dark:bg-gray-700 flex-wrap gap-24">
-      <div className=" flex flex-col gap-6">
+    <div className=" flex flex-row gap-20 flex-wrap justify-center items-center h-dvh w-full dark:bg-gray-700">
+      <AnalogClock time={displayTime} />
+      <div>
         <div className="text-xl text-gray-600 dark:text-gray-400 flex gap-2 ">
           <p>Current Time Zone :</p>
-          <span className="font-medium text-gray-800 dark:text-gray-300">
+          <p className="font-medium text-gray-800 dark:text-gray-300">
             {selectedZone === 'local'
               ? `${userLocalZone} (Local)`
               : selectedZone}
-          </span>
+          </p>
         </div>
         <div className="font-abel flex relative justify-between items-center flex-col">
           <div className="font-mono text-3xl md:text-4xl text-gray-900 dark:text-gray-400 my-4">
@@ -103,27 +105,26 @@ const DateTime = () => {
             </p>
           </div>
         </div>
-      </div>
-
-      <div className="pt-4">
-        <label
-          htmlFor="timezone"
-          className="block text-sm font-semibold text-gray-700 mb-2"
-        >
-          Change Time Zone:
-        </label>
-        <select
-          id="timezone"
-          value={selectedZone}
-          onChange={handleTimeZoneChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        >
-          {timeZones.map((zone) => (
-            <option key={zone} value={zone}>
-              {zone === 'local' ? `Local (${userLocalZone})` : zone}
-            </option>
-          ))}
-        </select>
+        <div>
+          <label
+            htmlFor="timezone"
+            className="block text-sm font-semibold text-gray-700 mb-2"
+          >
+            Change Time Zone:
+          </label>
+          <select
+            id="timezone"
+            value={selectedZone}
+            onChange={handleTimeZoneChange}
+            className="w-full border mb-24 border-gray-300 rounded-lg px-4 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            {timeZones.map((zone) => (
+              <option key={zone} value={zone}>
+                {zone === 'local' ? `Local (${userLocalZone})` : zone}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );

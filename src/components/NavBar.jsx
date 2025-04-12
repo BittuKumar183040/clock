@@ -28,9 +28,9 @@ const menuItems = [
 const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const path = location.pathname === '/' ? '/date-time' : location.pathname;
+  const path = location.pathname === '/' ? '/stopwatch' : location.pathname;
   const isValidPath = menuItems.some((item) => item.route === path);
-  const [menu, setMenu] = useState(isValidPath ? path : '/date-time');
+  const [menu, setMenu] = useState(isValidPath ? path : '/stopwatch');
   const handleMenuClick = (path) => {
     navigate(path);
     setMenu(path);

@@ -74,7 +74,7 @@ function App() {
         <BrowserRouter>
           <NavBar />
           <Routes>
-            <Route path="/" element={<DateTime />} />
+            <Route path="/" element={<Stopwatch />} />
             <Route path="/stopwatch" element={<Stopwatch />} />
             <Route path="/counter" element={<Counter />} />
             <Route path="/date-time" element={<DateTime />} />
