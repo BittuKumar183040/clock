@@ -6,6 +6,7 @@ import { MdOutlineAccessTime } from 'react-icons/md';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import StopwatchMini from './StopwatchMini';
+import TimerMini from './TimerMini';
 import { vibrate } from './function';
 
 const menuItems = [
@@ -43,6 +44,7 @@ const NavBar = () => {
     <>
       <div className=" absolute top-2 left-2 z-50 flex gap-2 flex-col">
         {location.pathname !== '/stopwatch' && <StopwatchMini />}
+        {location.pathname !== '/counter' && <TimerMini />}
       </div>
       <div className=" dark:text-white flex w-full bottom-0 items-center">
         <li className="flex justify-center w-96 flex-1 absolute bottom-0 left-1/2 -translate-x-1/2">
