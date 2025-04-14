@@ -1,0 +1,23 @@
+{
+  "lang": "en-us",
+  "name": "Clock 2.0",
+  "short_name": "Clock 2.0",
+  "description": "App for stopwatch, current data and time based of region and counter.",
+  "start_url": "/",
+  "background_color": "#2f3d58",
+  "theme_color": "#2f3d58",
+  "orientation": "any",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/clock512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/clock192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
