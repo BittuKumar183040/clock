@@ -1,75 +1,54 @@
-# React Project Template
+<div class="max-w-3xl mx-auto">
+      <h3 class="text-3xl text-left font-bold text-red-600 dark:text-white mb-6">
+        Project: Clock Application
+      </h3>
+      <p class="text-base mb-4 text-gray-600 dark:text-gray-300 text-justify">
+        Clock is a versatile time-tracking app that combines a stopwatch, real-time date & time display, and a counter utility. It is optimized for mobile and desktop, providing vibration feedback, PWA installability, and a compact minimized view for quick access.
+      </p>
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-4">Features</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-400">
+          <li><span class="font-medium">Stopwatch:</span> Start, pause, and reset tracking with millisecond precision.</li>
+          <li><span class="font-medium">Date & Time:</span> Auto-synced local and regional time display.</li>
+          <li><span class="font-medium">Counter:</span> Increment/decrement tracker.</li>
+          <li><span class="font-medium">Vibration Support:</span> Tactile feedback using Vibration API (when supported).</li>
+          <li><span class="font-medium">PWA Support:</span> Fully installable app with offline capabilities and manifest integration.</li>
+          <li><span class="font-medium">Responsive Design:</span> TailwindCSS-based layout optimized for all screen sizes.</li>
+          <li><span class="font-medium">Minimize Mode:</span> Mini-view for stopwatch and counter that floats over other tasks.</li>
+        </ul>
+      </section>
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-4">Technologies Used</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex items-center space-x-2 bg-gray-200 px-3 py-2 rounded dark:bg-gray-100">
+            <span>React</span>
+          </div>
+          <div class="flex items-center space-x-2 bg-gray-200 px-3 py-2 rounded dark:bg-gray-100">
+            <span>Tailwind CSS</span>
+          </div>
+          <div class="flex items-center space-x-2 bg-gray-200 px-3 py-2 rounded dark:bg-gray-100">
+            <span>Vibration API</span>
+          </div>
+          <div class="flex items-center space-x-2 bg-gray-200 px-3 py-2 rounded dark:bg-gray-100">
+            <span>PWA / Service Worker</span>
+          </div>
+          <div class="flex items-center space-x-2 bg-gray-200 px-3 py-2 rounded dark:bg-gray-100">
+            <span>Framer Motion</span>
+          </div>
+        </div>
+      </section>
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-4">Usage</h2>
+        <p class="text-gray-700 mb-4 dark:text-gray-400">Follow these steps to use the Clock app:</p>
+        <ol class="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-400">
+          <li>Launch the app and install it as a PWA on your device.</li>
+          <li>Use the stopwatch or counter in full or minimized mode.</li>
+          <li>Tap buttons to trigger vibration feedback where supported.</li>
+          <li>Check the current time and date at a glance.</li>
+        </ol>
+      </section>
+    </div>
+![Screenshot 2025-04-15 081457](https://github.com/user-attachments/assets/1be9e90b-0139-4d8d-af37-3156331b60fc)
+![Screenshot 2025-04-15 081431](https://github.com/user-attachments/assets/f6de9173-6f08-4752-acf3-c23849530bdd)
+![Screenshot 2025-04-15 081046](https://github.com/user-attachments/assets/40ce4e16-5cc2-4ccb-8f7e-d42b56f48549)
 
-This template is a robust starting point for React projects, offering a pre-configured environment with essential libraries and functionalities. It simplifies project setup and ensures a clean structure with built-in features.
-
----
-
-## Features
-
-### 1. Dark Mode
-
-Effortlessly toggle between light and dark themes to enhance the user experience, especially in low-light settings. Implemented with Tailwind CSS, the dark mode provides smooth transitions and a polished visual aesthetic.
-
-### 2. Section Setup
-
-Organize your application seamlessly with a predefined section setup. This makes it simple to manage different sections like headers, footers, content areas, and more.
-
-### 3. React Icons
-
-Access a vast library of icons pre-installed with React Icons. Whether you need social media, interface, or decorative icons, this library has you covered, enabling easy integration into your components.
-
-### 4. Tailwind CSS
-
-Leverage the power of Tailwind CSS, a utility-first CSS framework, to build responsive and customizable designs efficiently. Tailwind ensures a consistent and flexible design across your application.
-
-### 5. Prettier Formatting
-
-Keep your codebase clean and consistent with Prettier. Formatting is automated to ensure no unformatted code is pushed to your repository.
-
-#### Enable Format on Save:
-
-1. Open **Settings** (Ctrl/Command + ,).
-2. Search for **Format On Save**.
-3. Check the box to enable automatic formatting.
-
-### 6. Basic Folder Structure
-
-A well-organized folder structure ensures scalability and maintainability. The structure includes folders for components, pages, assets, and utilities, providing a strong foundation for efficient development.
-
-### 7. Local Network Hosting
-
-Test your application on different devices with ease using local network hosting. This feature allows you to share your development environment with other devices on the same network, such as smartphones or tablets.
-
----
-
-## Getting Started
-
-### 1. Clone the Repository
-
-To start, clone the repository to your local machine:
-
-```bash
-git clone https://github.com/BittuKumar183040/react-vite-template.git
-
-```
-
-```
-cd react-vite-template
-```
-
-```
-npm install
-```
-
-```
-npm run dev
-```
-
-## Authors
-
-- [@Bittu Kumar](https://github.com/BittuKumar183040)
-
-## Badges
-
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![Coverage Status](https://coveralls.io/repos/github/BittuKumar183040/react-vite-template/badge.svg?branch=main)](https://coveralls.io/github/BittuKumar183040/react-vite-template?branch=main)
