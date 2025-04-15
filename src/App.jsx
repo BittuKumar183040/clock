@@ -19,7 +19,9 @@ function App() {
     vibrate([30]);
   };
   const resetStopwatch = () => {
-    setTime(initialTime);
+    setTime(({ count }) => {
+      return { sec: 0, min: 0, hour: 0, count: count };
+    });
     setIsStopwatchStarted(false);
     vibrate([50]);
   };
@@ -38,8 +40,8 @@ function App() {
     vibrate([20]);
   };
   const resetCount = () => {
-    setTime(({ sec, min, hour, count }) => {
-      return { sec, min, hour, count: count * 0 };
+    setTime(({ sec, min, hour }) => {
+      return { sec, min, hour, count: 0 };
     });
     vibrate([50]);
   };

@@ -33,9 +33,8 @@ const TimerMini = () => {
       style={{ display: showMini ? 'flex' : ' none' }}
       className={`relative z-50 items-center gap-4 dark:bg-gray-800 dark:text-white bg-gray-200 w-fit p-2 rounded-md`}
     >
-      <p className=" tracking-widest">
-        {' '}
-        {time.count < 10 ? `0${time.count}` : time.count}{' '}
+      <p className=" tracking-widest w-10 text-center">
+        {time.count < 10 ? `0${time.count}` : time.count}
       </p>
       <div className=" flex gap-1">
         <button
@@ -57,7 +56,6 @@ const TimerMini = () => {
             onClick={handleReset}
             className=" w-8 h-8 flex items-center justify-center bg-red-500 rounded-md text-white"
           >
-            {' '}
             <BiReset size={20} className=" opacity-70" />
           </button>
         )}
@@ -66,7 +64,6 @@ const TimerMini = () => {
           onClick={handleCloseBtn}
           className=" z-10 absolute -top-1 -right-1 border-2 flex items-center justify-center bg-gray-500 rounded-full text-white"
         >
-          {' '}
           <IoClose size={15} className=" opacity-70" />
         </button>
       </div>

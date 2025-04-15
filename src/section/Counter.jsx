@@ -13,7 +13,7 @@ const Counter = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="flex items-center relative justify-center w-[244px] h-[244px] overflow-hidden border-2 rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 shadow-xl "
+        className="flex items-center relative justify-center w-[244px] h-[244px] overflow-hidden border-2 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 shadow-xl "
       >
         <AnimatedNumber countNumber={time.count} />
         <div className="absolute -z-0 top-0 left-0 w-full flex flex-wrap flex-row-reverse items-center">
@@ -44,7 +44,7 @@ const Counter = () => {
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={resetCount}
-          className={`${time.count === 0 ? 'bg-gray-500' : 'bg-red-500 cursor-not-allowed'} flex items-center justify-center gap-7 text-white p-2 pl-0 rounded`}
+          className={`${time.count === 0 ? 'bg-gray-500' : 'bg-red-500 cursor-not-allowed'} flex items-center justify-center gap-7 text-white p-2 py-4 rounded`}
         >
           <BiReset />
           <p>Reset</p>
