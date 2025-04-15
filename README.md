@@ -48,7 +48,7 @@
         </ol>
       </section>
     </div>
-![Screenshot 2025-04-15 081457](https://github.com/user-attachments/assets/1be9e90b-0139-4d8d-af37-3156331b60fc)
-![Screenshot 2025-04-15 081431](https://github.com/user-attachments/assets/f6de9173-6f08-4752-acf3-c23849530bdd)
-![Screenshot 2025-04-15 081046](https://github.com/user-attachments/assets/40ce4e16-5cc2-4ccb-8f7e-d42b56f48549)
+<img src="https://github.com/user-attachments/assets/1be9e90b-0139-4d8d-af37-3156331b60fc"/>
+<img src="https://github.com/user-attachments/assets/f6de9173-6f08-4752-acf3-c23849530bdd"/>
+<img src="https://github.com/user-attachments/assets/40ce4e16-5cc2-4ccb-8f7e-d42b56f48549"/>
 
